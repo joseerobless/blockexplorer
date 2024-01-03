@@ -268,18 +268,18 @@ const Accounts = () => {
         <div>
           Owned NFT's:
           <span className="account__nfts">
-            {accountNfts?.ownedNfts?.map((nft) => {
+            {accountNfts?.ownedNfts?.map((nft, i) => {
               const image =
                 nft.media[0]?.thumbnail ||
-                "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthenounproject.com%2Fbrowse%2Ficons%2Fterm%2Ftoken%2F&psig=AOvVaw0MPndlSTQLWCTWX6K1H42I&ust=1704338418610000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIiwn8mhwIMDFQAAAAAdAAAAABAI";
+                "https://static.thenounproject.com/png/3918097-200.png";
               return (
-                <div className="account__nfts__nft" key={image}>
+                <div className="account__nfts__nft" key={image + i}>
                   <img
                     src={image}
                     className="account__nfts__nft-image"
                     alt="token"
                   />
-                  <span>{nft.title}</span>
+                  <span>{nft.title || 'Untitled'}</span>
                 </div>
               );
             })}
