@@ -11,3 +11,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.transactions__container,
+.latest_container,
+.account__container {
+  display: grid;
+  padding: 10px 0;
+}
+
+.transaction__container,
+.block__container {
+  align-items: center;
+  display: inline-grid;
+  font-size: 11px;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin: 5px 20px;
+}
+
+.transaction__container--details {
+  grid-template-columns: unset;
+  margin-top: 10px;
+}
+
+.block__container {
+  grid-template-columns: 30px 1fr 1fr 1fr;
+}
+
+.block__image {
+  width: 30px;
+}
+
+.transaction__container > * {
+  text-align: left;
+}
+
+.transaction_block-num {
+  display: none;
+}
+
+.transaction__container__details-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar-item a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-item a:hover {
+  color: #36beff;
+  cursor: pointer;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #36beff;
+}
+
+a:active {
+  color: #733ff1;
+}
+
+.account__balance {
+  font-weight: 700;
+  padding-top: 20px;
+}
