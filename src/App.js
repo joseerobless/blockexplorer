@@ -264,7 +264,7 @@ const Accounts = () => {
         </span>
       )}
       <br />
-      {accountNfts && (
+      {accountNfts?.ownedNfts?.length > 0 && (
         <div>
           Owned NFT's:
           <span className="account__nfts">
