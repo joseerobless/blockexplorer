@@ -226,6 +226,7 @@ const Transaction = () => {
 const Accounts = () => {
   const [walletAddr, setWalletAddr] = useState();
   const [accountBalance, setAccountBalance] = useState();
+  const [accountNfts, setAccountNfts] = useState();
 
   const onWalletChange = (event) => {
     setWalletAddr(event.target.value);
@@ -235,6 +236,7 @@ const Accounts = () => {
     if (ev.code === "Enter" || ev.type === "click") {
       try {
         setAccountBalance(await alchemy.core.getBalance(walletAddr));
+        setAccountNfts(await alchemy.nft.getNftsForOwner(walletAddr));
       } catch (err) {
         console.error(
           `Invalid wallet address or name provided - please try again!\n${err}`
@@ -260,6 +262,29 @@ const Accounts = () => {
         <span className="account__balance">
           Current Balance: {Utils.formatEther(accountBalance)} ETH
         </span>
+      )}
+      <br />
+      {accountNfts && (
+        <div>
+          Owned NFT's:
+          <span className="account__nfts">
+            {accountNfts?.ownedNfts?.map((nft) => {
+              const image =
+                nft.media[0]?.thumbnail ||
+                "https://www.google.com/url?sa=i&url=https%3A%2F%2Fthenounproject.com%2Fbrowse%2Ficons%2Fterm%2Ftoken%2F&psig=AOvVaw0MPndlSTQLWCTWX6K1H42I&ust=1704338418610000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIiwn8mhwIMDFQAAAAAdAAAAABAI";
+              return (
+                <div className="account__nfts__nft" key={image}>
+                  <img
+                    src={image}
+                    className="account__nfts__nft-image"
+                    alt="token"
+                  />
+                  <span>{nft.title}</span>
+                </div>
+              );
+            })}
+          </span>
+        </div>
       )}
     </div>
   );

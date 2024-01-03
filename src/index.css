@@ -104,3 +104,20 @@ a:active {
   font-weight: 700;
   padding-top: 20px;
 }
+
+.account__nfts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 5px;
+}
+
+.account__nfts__nft {
+  display: grid;
+  justify-items: center;
+}
+
+.account__nfts__nft-image {
+  width: 100px;
+}
