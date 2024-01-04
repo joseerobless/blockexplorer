@@ -25,12 +25,16 @@ code {
   display: inline-grid;
   font-size: 11px;
   justify-content: space-between;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 
   padding: 10px;
   background-color: lightgray;
   border: 1px solid black;
   margin: 5px 20px;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .transaction__container--details {
@@ -39,7 +43,11 @@ code {
 }
 
 .block__container {
-  grid-template-columns: 30px 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 30px 1fr 1fr 1fr;
+  }
 }
 
 .block__image {
